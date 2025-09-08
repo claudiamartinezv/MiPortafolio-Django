@@ -131,7 +131,8 @@ USE_TZ = True
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # tu carpeta "static" del proyecto
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # carpeta donde collectstatic guardará los archivos
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

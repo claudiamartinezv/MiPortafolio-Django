@@ -17,3 +17,14 @@ __pycache__/
 
 # Configuración sensible
 .env
+
+# Archivos temporales
+*.log
+*.pot
+*.py~ 
+*.tmp
+*.swp
+
+# Archivos de VSCode o IDEs
+.vscode/
+.idea/

@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'portafolio',  # 👈 mi app
 ]
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',

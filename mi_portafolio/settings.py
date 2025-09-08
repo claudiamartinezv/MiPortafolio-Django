@@ -33,6 +33,11 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 # Hosts permitidos
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="").split(",")
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-c06b.up.railway.app",  # dominio Railway
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [

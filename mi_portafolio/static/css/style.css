@@ -1,0 +1,93 @@
+/* Global */
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #6a0dad, #9b30ff, #d8b4fe);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1{
+    font-size: 65px;
+    font-family: 'Dancing Script', cursive;
+}
+
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* Sobre mí */
+.sobre-mi {
+  padding: 2rem;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem; 
+  flex-wrap: wrap; /* para que se acomode bien en pantallas pequeñas */
+}
+
+.perfil img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: block;
+  border: 5px outset #6a0dad;
+}
+
+.perfil p {
+  max-width: 600px;
+  font-size: 1.2rem;
+}
+
+/* Hobbies */
+.hobbies ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hobbies li {
+    background: #d8b4fe;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.hobbies li:hover {
+    background: #9b30ff;
+}
+
+/* Galería */
+.gallery .images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gallery .images img {
+    width: 30%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, #6a0dad, #9b30ff, #d8b4fe);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}

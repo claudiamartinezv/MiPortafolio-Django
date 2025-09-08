@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Clau Martínez</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- NAV -->
+    <header>
+        {% for item in nav_items %}
+            <h1>{{ item.titulo }}</h1>
+        {% endfor %}
+    </header>
+
+    <!-- SOBRE MI -->
+    <section class="sobre-mi"> 
+        <h2>Sobre mí</h2>
+        <div class="perfil">
+            <img src="{% static 'img/foto_perfil.png' %}" alt="Foto perfil" class="profile-pic">
+            <p>
+                {% for sobre_mi in sobre_mi %}
+                    {{ sobre_mi.titulo }}<br>
+                {% endfor %}
+            </p>
+        </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section class="hobbies">
+        <h2>Mis hobbies</h2>
+        <ul>
+            {% for hobbie in hobbies %}
+                <li>{{ hobbie.nombre }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="gallery"> 
+        <h2>Mi galería</h2>
+        <div class="images"> 
+            <img src="{% static 'img/foto_1.png' %}" alt="Foto 1">
+            <img src="{% static 'img/foto_2.png' %}" alt="Foto 2">
+            <img src="{% static 'img/foto_3.png' %}" alt="Foto 3">
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>{{ footer.texto }}</p>
+    </footer>
+</body>
+</html>

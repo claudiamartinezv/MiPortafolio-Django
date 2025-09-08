@@ -1,0 +1,19 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Archivos de base de datos
+db.sqlite3
+
+# Archivos de compilación Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos estáticos generados
+/staticfiles/
+/media/
+
+# Configuración sensible
+.env

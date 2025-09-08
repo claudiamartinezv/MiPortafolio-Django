@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'mi_portafolio.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=config("DATABASE_URL", default="postgresql://postgres:cWgSDGgxiDEzjroCEWSttrWMBxICdIuU@postgres.railway.internal:5432/railway"),
+        default=config("DATABASE_URL", default="postgresql://postgres:cWgSDGgxiDEzjroCEWSttrWMBxICdIuU@yamabiko.proxy.rlwy.net:30042/railway"),
         conn_max_age=600,
         ssl_require=False  # Si Railway pide SSL cambia a True
     )

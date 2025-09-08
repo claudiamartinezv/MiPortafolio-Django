@@ -122,16 +122,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Archivos estáticos (CSS, JS, etc.)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']   # carpeta global de estáticos
-STATIC_ROOT = BASE_DIR / 'staticfiles'     # para collectstatic en producción
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-# Media (archivos subidos por el usuario, ej: imágenes de proyectos)
+# Archivos de subida (imágenes de usuarios, etc.)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

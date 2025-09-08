@@ -12,7 +12,8 @@ __pycache__/
 *.pyo
 
 # Archivos estáticos generados
-/staticfiles/
+/staticfiles/*
+!/staticfiles/.gitkeep
 /media/
 
 # Configuración sensible

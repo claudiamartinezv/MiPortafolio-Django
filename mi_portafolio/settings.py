@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+"""
+Django settings for mi_portafolio project.
+"""
+
 import os
 from pathlib import Path
 import dj_database_url
@@ -18,20 +22,9 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-
-# Clave secreta
+# 🔑 Security
 SECRET_KEY = config("SECRET_KEY")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
-# Debug (por defecto False)
 DEBUG = config("DEBUG", default=False, cast=bool)
-
-# Hosts permitidos
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="").split(",")
 
 CSRF_TRUSTED_ORIGINS = [
@@ -39,8 +32,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
-# Application definition
-
+# 📦 Apps instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,12 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portafolio',  # 👈 mi app
+    'portafolio',
 ]
 
+# ⚙️ Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise ✅
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,7 +60,7 @@ ROOT_URLCONF = 'mi_portafolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # carpeta global de templates
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,75 +76,52 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mi_portafolio.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# 🗄️ Base de datos
 DATABASES = {
     "default": dj_database_url.config(
         default=config("DATABASE_URL", default="postgresql://postgres:cWgSDGgxiDEzjroCEWSttrWMBxICdIuU@yamabiko.proxy.rlwy.net:30042/railway"),
         conn_max_age=600,
-        ssl_require=False  # Si Railway pide SSL cambia a True
+        ssl_require=False  # cambia a True si Railway exige SSL
     )
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
+# 🔐 Validadores de contraseña
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
+# 🌍 Internacionalización
 LANGUAGE_CODE = 'es'
-
 TIME_ZONE = 'America/Santiago'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# 🎨 Archivos estáticos y media
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # tu carpeta "static" del proyecto
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # carpeta donde collectstatic guardará los archivos
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+# ✅ WhiteNoise para servir estáticos en producción
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+
+# 🔑 Primary key por defecto
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# 🪵 Logging
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-        },
-    },
-    "root": {
-        "handlers": ["console"],
-        "level": "DEBUG",
-    },
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "root": {"handlers": ["console"], "level": "DEBUG"},
 }

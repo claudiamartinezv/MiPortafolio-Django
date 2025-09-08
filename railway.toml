@@ -1,0 +1,11 @@
+# railway.toml
+
+[build]
+builder = "heroku/buildpacks:20"
+
+[deploy]
+# Comando que Railway ejecuta al iniciar el contenedor (equivalente a "web" en el Procfile)
+start = "gunicorn mi_portafolio.wsgi:application"
+
+# Comando que Railway ejecuta antes de iniciar (equivalente a "release" en el Procfile)
+release = "python manage.py collectstatic --noinput"

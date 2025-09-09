@@ -1,4 +1,4 @@
-# 💜 Portafolio Personal - Claudia Martínez  
+# 💜 Portafolio Personal - Clau Martínez  
 
 ¡Hola! Soy **Claudia Martínez**, estudiante de desarrollo web y apasionada por el **Frontend, Backend, el diseño y la visualización de datos**.  
 Este portafolio lo desarrollé con **Django** y lo desplegué en **Railway** para mostrar un poco sobre mí y mis intereses. 🚀  
